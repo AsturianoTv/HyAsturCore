@@ -1,7 +1,4 @@
-target/
+/build/
+.gradle/
 .idea/
-*.iml
-.classpath
-.project
-.settings/
-HytaleServer.jar
+out/
