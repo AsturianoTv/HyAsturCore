@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'com.gradleup.shadow' version '8.3.6'
+}
+
+group = 'tv.asturiano'
+version = '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // SDK del Servidor Hytale local ubicado en libs/
+    implementation files('libs/HytaleServer.jar')
+
+    // Driver SQLite para los Claims
+    implementation 'org.xerial:sqlite-jdbc:3.45.1.0'
+}
+
+shadowJar {
+    archiveClassifier.set('')
+}
+
+tasks.named('build') {
+    dependsOn shadowJar
+}
+
+// Tarea para desplegar automáticamente al servidor remoto (GameServer) por SCP
+task deployToGameServer(type: Exec) {
+    dependsOn shadowJar
+    commandLine 'scp', 'build/libs/HyAsturCore-1.0.0.jar', 'astur@192.168.1.139:/home/astur/hytale-data/Server/mods/'
+}

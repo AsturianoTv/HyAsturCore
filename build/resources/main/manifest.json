@@ -1,0 +1,17 @@
+{
+  "Group": "tv.asturiano",
+  "Name": "HyAsturCore",
+  "Version": "1.0.0",
+  "Description": "Mod oficial para la comunidad de HyAstur_Tv: Claims, Reanimación, Crianza y Sistemas Core.",
+  "Authors": [
+    {
+      "Name": "Asturiano"
+    }
+  ],
+  "ServerVersion": ">=0.7.0 <0.8.0",
+  "Dependencies": {},
+  "DisabledByDefault": false,
+  "IncludesAssetPack": true,
+  "AssetPackPath": "resources",
+  "Main": "tv.asturiano.HyAsturMod"
+}
